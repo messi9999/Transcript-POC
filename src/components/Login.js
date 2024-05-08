@@ -23,7 +23,7 @@ export default function Login() {
         navigate('/dashboard');
     };
     return (
-        <div style={{ display: 'flex', justifyContent: 'center' }}>
+        <div className='login-main'>
             <div className='login-form'>
                 <h1>Login</h1>
                 <form onSubmit={handleLogin} className='login-main-form'>
