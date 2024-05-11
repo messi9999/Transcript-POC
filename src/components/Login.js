@@ -11,7 +11,7 @@ export default function Login() {
     //
     const handleLogin = async (event) => {
         event.preventDefault();
-        const response = await fetch("https://poc-transcript-server.azurewebsites.net/" + '/api/login/', {
+        const response = await fetch("https://poc-transcript-server.azurewebsites.net/api/login/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
