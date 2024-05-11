@@ -29,7 +29,6 @@ export default function Login() {
                 <h1>Login</h1>
                 <form onSubmit={handleLogin} className='login-main-form'>
                     <div>
-
                         <label>
                             Username:
                         </label>
@@ -51,7 +50,7 @@ export default function Login() {
                         />
                     </div>
                     <br />
-                    <button disabled={username==="" || password===""} type="submit">Log In</button>
+                    <button disabled={username === "" || password === ""} type="submit">Log In</button>
                 </form>
             </div>
         </div>
