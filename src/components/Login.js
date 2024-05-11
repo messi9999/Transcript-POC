@@ -11,7 +11,7 @@ export default function Login() {
     //
     const handleLogin = async (event) => {
         event.preventDefault();
-        console.log("base_url")
+        console.log("base_url: ", base_url)
         const response = await fetch(base_url + '/api/login/', {
             method: 'POST',
             headers: {
