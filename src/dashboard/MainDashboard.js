@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import FileUpload from '../components/FileUpload'
 import { useNavigate } from 'react-router-dom';
 import '../App.css'
+import { BASE_URL } from '../config/config';
 
 export default function MainDashboard() {
   let navigate = useNavigate();
@@ -29,7 +30,7 @@ export default function MainDashboard() {
     // Define the function to fetch the file list
     const fetchFileList = async () => {
       try {
-        const response = await fetch(process.env.REACT_APP_BASEURL + '/api/s3-files/', { // Replace with your actual endpoint
+        const response = await fetch(BASE_URL + '/api/s3-files/', { // Replace with your actual endpoint
           method: 'GET',
           headers: {
             'Authorization': `Token ${token}`
@@ -65,7 +66,7 @@ export default function MainDashboard() {
     const formData = new FormData();
     formData.append('file', selectedFile);
 
-    fetch(process.env.REACT_APP_BASEURL + '/api/upload/', { // Replace with your actual endpoint
+    fetch(BASE_URL + '/api/upload/', { // Replace with your actual endpoint
       method: 'POST',
       body: formData,
       headers: {
@@ -110,7 +111,7 @@ export default function MainDashboard() {
       endpoint = '/api/transcribe-medical/'
     }
 
-    fetch(process.env.REACT_APP_BASEURL + endpoint, { // Replace with your actual endpoint
+    fetch(BASE_URL + endpoint, { // Replace with your actual endpoint
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

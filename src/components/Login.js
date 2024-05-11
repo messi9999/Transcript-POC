@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import "./Login.css"
+import { BASE_URL } from '../config/config';
 
 export default function Login() {
     // const base_url = process.env.REACT_APP_BASEURL
@@ -11,7 +12,7 @@ export default function Login() {
     //
     const handleLogin = async (event) => {
         event.preventDefault();
-        const response = await fetch("https://poc-transcript-server.azurewebsites.net/api/login/", {
+        const response = await fetch(BASE_URL + "/api/login/", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
