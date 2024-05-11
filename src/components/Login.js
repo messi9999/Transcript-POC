@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import "./Login.css"
 
 export default function Login() {
-    const base_url = process.env.REACT_APP_BASEURL
+    // const base_url = process.env.REACT_APP_BASEURL
     let navigate = useNavigate();
 
     const [username, setUsername] = useState('');
