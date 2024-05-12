@@ -84,7 +84,10 @@ export default function MainDashboard() {
           Size: selectedFile.size,
           ETag: ''
         }
-        setFileList(prevSelected => [...prevSelected, newItem]);
+        if (!(fileList.find(item => item.Key === newItem.Key))) {
+
+          setFileList(prevSelected => [...prevSelected, newItem]);
+        }
         setIsUploading(false);
       })
       .catch(error => console.error('Error uploading file:', error));
@@ -102,7 +105,6 @@ export default function MainDashboard() {
       return;
     }
     setIsTranscribing(true)
-
 
     let endpoint = '/api/transcribe/'
     if (key === 'G') {
