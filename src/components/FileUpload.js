@@ -61,7 +61,7 @@ export default function FileUpload({ onFileUpload }) {
     <div className="container">
       <div {...getRootProps({style})}>
         <input {...getInputProps()} />
-        <p>Drag 'n' drop some files here, or click to select files</p>
+        <p>Drag and drop some files here, or click to select files</p>
       </div>
     </div>
   );

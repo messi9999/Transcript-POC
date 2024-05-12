@@ -47,7 +47,6 @@ export default function MainDashboard() {
         console.error("Failed to fetch file list:", error);
       }
     };
-
     // Call the function
     fetchFileList();
   }, [token]);
@@ -144,15 +143,24 @@ export default function MainDashboard() {
             <div className="loading-message">Loading Video lists from S3...</div>
           </div>
         )}
-        <div className='main-dashboard-dropbox'>
-          <FileUpload onFileUpload={handleFileUpload} />
-          <button
-            onClick={handleS3Upload}
-            className={selectedFile ? 'upload-button-active' : 'upload-button-inactive'}
-            disabled={!selectedFile || isLoadingS3}
-          >
-            Upload
-          </button>
+        <div className='main-dashboard-right-place'>
+          <div className='main-dashboard-instruction'>
+            <h2>Instruction:</h2>
+            <li>Drag a video file into grey drag box.</li>
+            <li>Click on "Upload" button to upload the video to S3.</li>
+            <li>Choose one of the videos from the list.</li>
+            <li>Click on "General English or "Medical English" button to get transcription.</li>
+          </div>
+          <div className='main-dashboard-dropbox'>
+            <FileUpload onFileUpload={handleFileUpload} />
+            <button
+              onClick={handleS3Upload}
+              className={selectedFile ? 'upload-button-active' : 'upload-button-inactive'}
+              disabled={!selectedFile || isLoadingS3}
+            >
+              Upload
+            </button>
+          </div>
         </div>
         <div>
           <div className='file-list'>
