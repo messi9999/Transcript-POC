@@ -13,7 +13,7 @@
 
 .main-dashboard {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     align-items: center;
     width: 90%;
@@ -28,6 +28,33 @@
     /* Optional shadow for a "card" effect */
     border-radius: 10px;
     /* Optional rounded corners */
+}
+
+.main-dashboard-fileupload {
+    width: max-content;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 50px;
+}
+
+.main-dashboard-transcript {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 90%;
+    /* Or set a fixed width if you prefer */
+    margin: 10px;
+    /* For additional centering if needed */
+    padding: 20px;
+
+    border: transparent;
+    border-bottom: #88888a;
+    border-style: dashed;
+    border-width: 0.2cap;
+    
 }
 
 .main-dashboard-transcribe-btn {
@@ -96,6 +123,45 @@
     background-color: grey;
     cursor: default;
     /* other inactive styles */
+}
+
+.summarize-button-active {
+    width: auto;
+    height: fit-content;
+    margin: 5px;
+    padding: 10px;
+    background: rgb(52, 108, 230);
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    border-color: transparent;
+}
+
+.summarize-button-active:hover {
+    width: auto;
+    height: fit-content;
+    margin: 5px;
+    padding: 10px;
+    background: rgb(25, 85, 214);
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    border-color: transparent;
+}
+
+
+.summarize-button-inactive {
+    width: auto;
+    margin: 5px;
+    padding: 10px;
+    background: rgb(179, 187, 204);
+    cursor: pointer;
+    font-size: 15px;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+    border-color: transparent;
 }
 
 .transcribe-button-active {
@@ -227,6 +293,11 @@
     border-top-color: #3498db;
     /* Blue color */
     animation: pulse 1.5s ease-in-out infinite;
+}
+
+.result-area {
+    display: flex;
+    flex-direction: column;
 }
 
 @keyframes pulse {

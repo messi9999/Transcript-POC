@@ -3,7 +3,7 @@ import { useDropzone } from 'react-dropzone';
 
 
 
-export default function FileUpload({ onFileUpload }) {
+export default function FileUpload({ onFileUpload, fileExtension }) {
     const {  getRootProps,
         getInputProps,
         isFocused,
@@ -11,9 +11,7 @@ export default function FileUpload({ onFileUpload }) {
         isDragReject } = useDropzone({
         onDrop: onFileUpload,
         multiple: false, // Set to true if you want to allow multiple files
-        accept: {
-            'video/mp4': ['.mp4']
-        }, // Accept all video formats or specify like 'video/mp4'
+        accept: fileExtension, // Accept all video formats or specify like 'video/mp4'
         maxFiles:1
     });
 
