@@ -301,7 +301,7 @@ export default function MainDashboard() {
           </div>
           <button
             disabled={!isTranscript}
-            className={isTranscript && (trans !== "") ? 'summarize-button-active' : 'summarize-button-inactive'}
+            className={selectedDocFile ? 'summarize-button-active' : 'summarize-button-inactive'}
             onClick={handleOnDocSummarize}
           >
             Summarize
