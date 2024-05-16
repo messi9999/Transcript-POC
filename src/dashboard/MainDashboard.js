@@ -65,7 +65,7 @@ export default function MainDashboard() {
   const handleDocFileUpload = (files) => {
     const fileToUpload = files[0];
     setSelectedDocFile(fileToUpload)
-    console.log(selectedDocFile.path)
+    setIsTranscript(true)
   };
 
   const handleS3Upload = () => {
@@ -300,7 +300,7 @@ export default function MainDashboard() {
             <label>{selectedDocFile && (selectedDocFile.path)}</label>
           </div>
           <button
-            disabled={!isTranscript}
+            disabled={!isTranscript || !selectedDocFile}
             className={selectedDocFile ? 'summarize-button-active' : 'summarize-button-inactive'}
             onClick={handleOnDocSummarize}
           >
