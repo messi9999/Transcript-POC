@@ -140,12 +140,13 @@ export default function MainDashboard() {
       })
       .then(data => {
         setTrans(data.results.transcripts[0].transcript)
-        setIsTranscribing(false)
-        setIsTranscript(true)
       })
       .catch(error => {
         console.error('Error starting transcription job:', error);
+        window.alert(error)
       });
+      setIsTranscribing(false)
+      setIsTranscript(true)
   }
 
   const handleOnSummarize = () => {
@@ -167,12 +168,13 @@ export default function MainDashboard() {
       .then(data => {
         console.log(data)
         setTrans(data.summary)
-        setIsTranscript(false)
-        setIsTranscribing(false)
       })
       .catch(error => {
         console.error('Error starting transcription job:', error);
+        window.alert(error)
       });
+      setIsTranscript(false)
+      setIsTranscribing(false)
   }
 
   const handleOnDocSummarize = () => {
@@ -196,11 +198,12 @@ export default function MainDashboard() {
       .then(data => {
         console.log(data)
         setTransDoc(data.summary)
-        setIsTranscribing(false)
       })
       .catch(error => {
         console.error('Error starting transcription job:', error);
+        window.alert(error)
       });
+      setIsTranscribing(false)
   }
 
 
