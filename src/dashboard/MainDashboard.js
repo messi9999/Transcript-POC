@@ -19,7 +19,7 @@ export default function MainDashboard() {
   const [isReadyTranscribe, setIsReadyStanscribe] = useState(false);
   const [isTranscribing, setIsTranscribing] = useState(false)
 
-  
+
 
   const [trans, setTrans] = useState()
   const [transDoc, setTransDoc] = useState()
@@ -99,9 +99,9 @@ export default function MainDashboard() {
 
           setFileList(prevSelected => [...prevSelected, newItem]);
         }
-        setIsUploading(false);
       })
       .catch(error => console.error('Error uploading file:', error));
+    setIsUploading(false);
   }
 
   const handleVideolSelect = (file) => {
@@ -140,13 +140,15 @@ export default function MainDashboard() {
       })
       .then(data => {
         setTrans(data.results.transcripts[0].transcript)
+        setIsTranscribing(false)
+        setIsTranscript(true)
       })
       .catch(error => {
         console.error('Error starting transcription job:', error);
         window.alert(error)
+        setIsTranscribing(false)
+        setIsTranscript(true)
       });
-      setIsTranscribing(false)
-      setIsTranscript(true)
   }
 
   const handleOnSummarize = () => {
@@ -168,13 +170,15 @@ export default function MainDashboard() {
       .then(data => {
         console.log(data)
         setTrans(data.summary)
+        setIsTranscript(false)
+        setIsTranscribing(false)
       })
       .catch(error => {
         console.error('Error starting transcription job:', error);
         window.alert(error)
+        setIsTranscript(false)
+        setIsTranscribing(false)
       });
-      setIsTranscript(false)
-      setIsTranscribing(false)
   }
 
   const handleOnDocSummarize = () => {
@@ -198,12 +202,13 @@ export default function MainDashboard() {
       .then(data => {
         console.log(data)
         setTransDoc(data.summary)
+        setIsTranscribing(false)
       })
       .catch(error => {
         console.error('Error starting transcription job:', error);
         window.alert(error)
+        setIsTranscribing(false)
       });
-      setIsTranscribing(false)
   }
 
 
@@ -281,7 +286,7 @@ export default function MainDashboard() {
             />
             <button
               disabled={!isTranscript}
-              className={isTranscript && (trans !== "") ? 'summarize-button-active' : 'summarize-button-inactive'}
+              className={isTranscript ? 'summarize-button-active' : 'summarize-button-inactive'}
               onClick={handleOnSummarize}
             >
               Summarize
@@ -310,11 +315,11 @@ export default function MainDashboard() {
             Summarize
           </button>
           <textarea
-              value={transDoc}
-              className="transcription-result"
-              placeholder="Transcription result will appear here..."
-              readOnly  // Remove this if you want to allow editing
-            />
+            value={transDoc}
+            className="transcription-result"
+            placeholder="Transcription result will appear here..."
+            readOnly  // Remove this if you want to allow editing
+          />
         </div>
       </div>
     </div>
